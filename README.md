@@ -29,8 +29,9 @@ A web framework is a tool that is designed to support the development of web
 applications. This is similar to React, though true web frameworks provide a
 degree of scaffolding to direct you in the construction of your project. Certain
 frameworks like [Django](https://www.djangoproject.com/) do everything under the
-sun: they give you the power of Python, an ORM, a web server, authentication,
-and more. Microframeworks like Flask handle some basic functionality, but more
+sun: they give you the power of Python, an ORM (object-relational mapping
+software that maps objects to a database), a web server, authentication, and
+more. Microframeworks like Flask handle some basic functionality, but more
 specific duties require **extensions**.
 
 While Flask does not come with all of the features that Django does, it is no
