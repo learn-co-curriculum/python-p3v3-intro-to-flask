@@ -67,7 +67,7 @@ with different styles of coding.
 Ronacher couldn't handle all of these requests himself, so he created [the
 Pallets Projects][pp] as a central location for Flask and his other projects. If
 you visit the homepage, you'll see the docs for Werkzeug, Jinja, and Click. This
-might be a useful page to bookmark!
+is a useful page to bookmark!
 
 Because it is useful for small and large projects and a wide variety of tasks,
 Flask is now the most used Python web framework: It is used at Netflix, Reddit,
