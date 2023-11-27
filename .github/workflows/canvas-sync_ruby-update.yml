@@ -29,29 +29,3 @@ jobs:
         env:
           CANVAS_API_KEY: ${{ secrets.CANVAS_API_KEY }}
           CANVAS_API_PATH: ${{ secrets.CANVAS_API_PATH }}
-lindaseiter@Lindas-MacBook-Pro workflows % 
-lindaseiter@Lindas-MacBook-Pro workflows % vi canvas-sync-ruby-update.yml 
-
-name: Sync with Canvas Ruby v2.7
-
-on:
-  push:
-    branches: [master, main]
-    paths:
-      - "README.md"
-
-jobs:
-  sync:
-    name: Sync with Canvas
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-
-      - name: Install github-to-canvas
