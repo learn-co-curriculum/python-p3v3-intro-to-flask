@@ -1,0 +1,96 @@
+Last login: Sun Nov 26 16:38:06 on ttys006
+lindaseiter@Lindas-MacBook-Pro ~ % cd curriculum 
+lindaseiter@Lindas-MacBook-Pro curriculum % ls
+codegrade_sql				phase4
+codevisualizer				playground-py
+javamodules				se-curriculum-templates
+markdownlint-rules-flatiron-lesson	semgrep_examples
+phase0					springboot
+phase3					tmp
+lindaseiter@Lindas-MacBook-Pro curriculum % cd se-curriculum-templates 
+lindaseiter@Lindas-MacBook-Pro se-curriculum-templates % ls
+README.md			python-codealong
+canvas-quiz			python-lab
+css-lab				readme
+flask-codealong			ruby-active-record-lab
+flask-lab			ruby-lab
+html-lab			ruby-sinatra-lab
+java-lab-gradle			set-up.sh
+java-lab-maven			setup-script-instructions.md
+javascript-lab
+lindaseiter@Lindas-MacBook-Pro se-curriculum-templates % cd readme 
+lindaseiter@Lindas-MacBook-Pro readme % ls
+CONTRIBUTING.md	LICENSE.md	README.md
+lindaseiter@Lindas-MacBook-Pro readme % ls -la
+total 32
+drwxr-xr-x   7 lindaseiter  staff   224 Nov 25 14:25 .
+drwxr-xr-x  21 lindaseiter  staff   672 Nov 25 14:34 ..
+drwxr-xr-x   3 lindaseiter  staff    96 Nov 25 14:24 .github
+-rw-r--r--@  1 lindaseiter  staff    18 Nov 21 09:24 .gitignore
+-rw-r--r--   1 lindaseiter  staff  1811 Nov 25 14:24 CONTRIBUTING.md
+-rw-r--r--   1 lindaseiter  staff  1346 Nov 25 14:24 LICENSE.md
+-rw-r--r--   1 lindaseiter  staff   691 Nov 25 14:24 README.md
+lindaseiter@Lindas-MacBook-Pro readme % cd .github 
+lindaseiter@Lindas-MacBook-Pro .github % ls
+workflows
+lindaseiter@Lindas-MacBook-Pro .github % cd workflows 
+lindaseiter@Lindas-MacBook-Pro workflows % ls
+canvas-sync-ruby-update.yml
+lindaseiter@Lindas-MacBook-Pro workflows % more canvas-sync-ruby-update.yml 
+name: Sync with Canvas Ruby v2.7
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - "README.md"
+
+jobs:
+  sync:
+    name: Sync with Canvas
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+
+      - name: Install github-to-canvas
+        run: gem install github-to-canvas
+
+      # Secret stored in learn-co-curriculum Settings/Secrets
+      - name: Sync from .canvas file
+        run: github-to-canvas -a -lr
+        env:
+          CANVAS_API_KEY: ${{ secrets.CANVAS_API_KEY }}
+          CANVAS_API_PATH: ${{ secrets.CANVAS_API_PATH }}
+lindaseiter@Lindas-MacBook-Pro workflows % 
+lindaseiter@Lindas-MacBook-Pro workflows % vi canvas-sync-ruby-update.yml 
+
+name: Sync with Canvas Ruby v2.7
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - "README.md"
+
+jobs:
+  sync:
+    name: Sync with Canvas
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+
+      - name: Install github-to-canvas
